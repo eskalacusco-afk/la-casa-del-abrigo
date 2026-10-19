@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1b202c">
+  <meta name="description" content="Instrumentos de investigación de mercado de La Casa del Abrigo: valor percibido, percepción del precio y entrevista de compra.">
+  <title>Investigación de mercado | La Casa del Abrigo</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="instruments.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="site">
+    <header class="topbar">
+      <a class="topbar-brand" href="./" aria-label="La Casa del Abrigo, inicio">
+        <span class="brand-gem" aria-hidden="true">✦</span>
+        <span>LA CASA DEL ABRIGO</span>
+      </a>
+      <span class="topbar-note">Estudio de consumidores <span class="online-dot" aria-hidden="true"></span></span>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
+        <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-line"></span> LA CASA DEL ABRIGO · INVESTIGACIÓN DE MERCADO</span>
+          <h1 id="hero-title">Tu opinión nos ayuda a <em>comprender el valor</em> de cada prenda.</h1>
+          <p>Queremos conocer cómo percibes la calidad y el precio de nuestros abrigos y gabardinas, y qué motivos influyen en tus decisiones de compra.</p>
+          <div class="hero-facts">
+            <span><strong>02</strong> enfoques de investigación</span>
+            <span><strong>35</strong> afirmaciones cuantitativas</span>
+            <span><strong>12</strong> preguntas abiertas</span>
+          </div>
+        </div>
+        <div class="hero-art">
+          <img src="logo.png" alt="Logotipo original dorado de La Casa del Abrigo" width="420" height="420">
+          <span>MODA · VALOR · EXPERIENCIA</span>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Instrumentos de investigación">
+        <div class="tabs" role="tablist" aria-label="Seleccionar enfoque de investigación">
+          <button type="button" id="tab-quant" class="tab is-active" role="tab" aria-selected="true" aria-controls="panel-quant" tabindex="0" data-target="quant">
+            <span class="tab-icon" aria-hidden="true">▥</span><span><strong>Enfoque cuantitativo</strong><small>Valor percibido y percepción del precio</small></span>
+          </button>
+          <button type="button" id="tab-qual" class="tab" role="tab" aria-selected="false" aria-controls="panel-qual" tabindex="-1" data-target="qual">
+            <span class="tab-icon" aria-hidden="true">◌</span><span><strong>Enfoque cualitativo</strong><small>Entrevista sobre la decisión de compra</small></span>
+          </button>
+        </div>
+
+        <section class="tab-panel" id="panel-quant" role="tabpanel" aria-labelledby="tab-quant">
+          <div class="panel-heading">
+            <div><span class="section-tag">ENCUESTA · 2 INSTRUMENTOS</span><h2>Cuéntanos cómo eliges tus prendas</h2><p>Las afirmaciones se responden del 1 al 7. Lee cada una y elige la opción que mejor refleje tu opinión.</p></div>
+            <div class="time-pill">◷ Aproximadamente 10–14 min</div>
+          </div>
+          <form id="quant-form" novalidate>
+            <div class="form-card intro-card">
+              <div class="form-card-header"><span class="step-number">01</span><div><h3>Tu participación</h3><p>La encuesta es voluntaria. No solicitamos tu nombre, teléfono ni documento.</p></div></div>
+              <p class="consent-copy">Las respuestas se utilizarán únicamente para analizar la percepción de las prendas, la relación calidad-precio y los hábitos de compra. Puedes dejar de participar antes de enviar el formulario. Una vez enviadas, las respuestas quedarán registradas con un código, sin datos identificatorios directos.</p>
+              <label class="consent-label"><input type="checkbox" name="consentimiento" value="si" required><span>He leído esta información y acepto participar voluntariamente.</span></label>
+            </div>
+
+            <div class="form-card">
+              <div class="form-card-header"><span class="step-number">02</span><div><h3>Datos de la evaluación</h3><p>Utiliza la misma prenda como referencia para todas las preguntas de valor percibido.</p></div></div>
+              <div class="form-grid">
+                <label class="field"><span>Código de participante <span class="required">*</span></span><input name="codigo" id="quant-code" maxlength="40" autocomplete="off" required placeholder="LCDA-..."><small>Sirve para vincular tus dos enfoques, sin usar nombres.</small></label>
+                <label class="field"><span>Grupo de edad (opcional)</span><select name="edad"><option value="">Prefiero no indicarlo</option><option>18–24</option><option>25–34</option><option>35–44</option><option>45–54</option><option>55 o más</option></select></label>
+                <label class="field"><span>Relación con la tienda <span class="required">*</span></span><select name="relacion_tienda" required><option value="">Selecciona una opción</option><option>Primera visita</option><option>Visitó antes, no compró</option><option>Ya compró antes</option></select></label>
+                <label class="field"><span>Prenda que evaluarás <span class="required">*</span></span><select name="prenda_evaluada" id="garment-type" required><option value="">Selecciona una prenda</option><option>Abrigo corto</option><option>Tres cuartos</option><option>Abrigo largo</option><option>Gabardina</option><option>Blazer</option><option>Otro</option></select></label>
+                <label class="field is-hidden" id="other-garment-wrap"><span>Indica qué otra prenda</span><input name="otra_prenda" id="other-garment" maxlength="100" placeholder="Nombre de la prenda"></label>
+                <label class="field"><span>Precio visible de la prenda (S/) <span class="required">*</span></span><input type="number" min="0.01" max="999999" step="0.01" name="precio_visible_pen" required inputmode="decimal" placeholder="Ej. 189.90"></label>
+                <label class="field"><span>¿Para qué usarías esta prenda? <span class="required">*</span></span><select name="uso_prenda" required><option value="">Selecciona una opción</option><option>Diario</option><option>Trabajo</option><option>Evento</option></select></label>
+                <label class="field"><span>¿Qué prenda te interesa? <span class="required">*</span></span><select name="interes_compra" required><option value="">Selecciona una opción</option><option>Abrigo</option><option>Gabardina</option></select></label>
+              </div>
+            </div>
+
+            <div class="question-block" id="perval-block">
+              <div class="question-block-head"><span class="step-number">03</span><div><span class="section-tag">INSTRUMENTO 01 · PERVAL ADAPTADO</span><h3>Valor percibido</h3><p><strong>Antes de comenzar:</strong> elige una prenda, obsérvala o pruébatela y revisa su precio. Responde pensando únicamente en esa prenda.</p></div><span class="item-count">19 ítems</span></div>
+              <div class="likert-explanation"><strong>Escala de acuerdo (1–7)</strong><div><span>1 · Totalmente en desacuerdo</span><span>4 · Ni de acuerdo ni en desacuerdo</span><span>7 · Totalmente de acuerdo</span></div><details><summary>Ver significado de los siete valores</summary><p>1 = Totalmente en desacuerdo · 2 = Bastante en desacuerdo · 3 = Algo en desacuerdo · 4 = Ni de acuerdo ni en desacuerdo · 5 = Algo de acuerdo · 6 = Bastante de acuerdo · 7 = Totalmente de acuerdo.</p></details></div>
+              <div id="perval-questions"></div>
+            </div>
+
+            <div class="question-block" id="precio-block">
+              <div class="question-block-head"><span class="step-number">04</span><div><span class="section-tag">INSTRUMENTO 02 · LICHTENSTEIN ET AL. (1993) ADAPTADO</span><h3>Percepción del precio</h3><p><strong>Antes de comenzar:</strong> piensa en cómo sueles elegir y comprar abrigos o gabardinas, en esta tienda o en otras. Responde según lo que piensas habitualmente.</p></div><span class="item-count">16 ítems</span></div>
+              <div class="likert-explanation"><strong>Escala de acuerdo (1–7)</strong><div><span>1 · Totalmente en desacuerdo</span><span>4 · Ni de acuerdo ni en desacuerdo</span><span>7 · Totalmente de acuerdo</span></div></div>
+              <div id="precio-questions"></div>
+            </div>
+
+            <div class="submission-card">
+              <div><h3>Tu encuesta está casi lista</h3><p id="quant-progress-text">0 de 35 afirmaciones respondidas</p><div class="progress-track"><div class="progress-fill" id="quant-progress-bar" style="width:0%"></div></div></div>
+              <button class="submit-button" type="submit" id="quant-submit">Enviar respuestas <span aria-hidden="true">↗</span></button>
+              <p class="status" id="quant-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </section>
+
+        <section class="tab-panel" id="panel-qual" role="tabpanel" aria-labelledby="tab-qual" hidden>
+          <div class="panel-heading"><div><span class="section-tag">ENTREVISTA · CADENA DE MEDIOS Y FINES</span><h2>Descubramos qué hay detrás de una compra</h2><p>Guía de entrevista semiestructurada: atributos de la prenda, beneficios, valores personales y razones para pagar más o menos.</p></div><div class="time-pill">◷ 25–40 min aprox.</div></div>
+          <form id="qual-form" novalidate>
+            <div class="form-card intro-card">
+              <div class="form-card-header"><span class="step-number">01</span><div><h3>Información y consentimiento</h3><p>Para leer o entregar a la persona entrevistada antes de comenzar.</p></div></div>
+              <p class="consent-copy">Estamos realizando una investigación para comprender cómo las personas deciden cuánto pagar por una prenda de vestir y qué características consideran importantes. La participación consiste en responder preguntas abiertas sobre experiencias y opiniones de compra. Participar es voluntario; la persona puede dejar de responder cualquier pregunta o terminar la entrevista en cualquier momento, sin consecuencias. Se emplearán códigos para el análisis, sin identificar a los participantes. La grabación de audio, si se realiza por medios externos a esta página, requiere autorización aparte.</p>
+              <label class="consent-label"><input type="checkbox" name="consentimiento" value="si" required><span>La persona entrevistada aceptó participar voluntariamente.</span></label>
+              <div class="form-grid consent-options">
+                <label class="field"><span>¿Autorizó una grabación externa de audio? <span class="required">*</span></span><select name="autoriza_audio" required><option value="">Selecciona una opción</option><option value="si">Sí</option><option value="no">No</option></select><small>Esta página no graba audio.</small></label>
+                <label class="field"><span>¿Prefiere registro mediante notas? <span class="required">*</span></span><select name="registro_notas" required><option value="">Selecciona una opción</option><option value="si">Sí</option><option value="no">No</option></select></label>
+              </div>
+            </div>
+            <div class="form-card">
+              <div class="form-card-header"><span class="step-number">02</span><div><h3>Ficha de entrevista</h3><p>Evita escribir nombres de participantes o datos personales innecesarios.</p></div></div>
+              <div class="form-grid">
+                <label class="field"><span>Código de participante <span class="required">*</span></span><input name="codigo" id="qual-code" maxlength="40" required autocomplete="off" placeholder="Ej. LCDA-..."><small>Usa el mismo código de la encuesta si corresponde a la misma persona.</small></label>
+                <label class="field"><span>Fecha de entrevista <span class="required">*</span></span><input type="date" name="fecha_entrevista" id="qual-date" required></label>
+                <label class="field"><span>Modalidad <span class="required">*</span></span><select name="modalidad" required><option value="">Selecciona una opción</option><option>Presencial</option><option>Virtual</option></select></label>
+                <label class="field"><span>Código del entrevistador (opcional)</span><input name="entrevistador_codigo" maxlength="50" placeholder="Ej. ENT-01"></label>
+                <label class="field"><span>Hora de inicio (opcional)</span><input name="hora_inicio" type="time"></label>
+                <label class="field"><span>Hora de finalización (opcional)</span><input name="hora_fin" type="time"></label>
+                <label class="field"><span>Prenda tomada como referencia <span class="required">*</span></span><input name="prenda_referencia" maxlength="100" required placeholder="Ej. Abrigo largo"></label>
+                <label class="field"><span>Frecuencia aproximada de compra (opcional)</span><input name="frecuencia_compra" maxlength="150" placeholder="Ej. Cada seis meses"></label>
+              </div>
+              <label class="field field-full"><span>Experiencia reciente de compra (opcional)</span><textarea name="experiencia_reciente" rows="2" maxlength="2000" placeholder="Descripción breve, sin nombres ni datos identificatorios..."></textarea></label>
+            </div>
+
+            <div class="interview-tip"><div class="tip-mark" aria-hidden="true">✧</div><div><h3>Antes de entrevistar</h3><p>“Conversemos sobre cómo eliges y compras prendas de vestir. No existen respuestas correctas o incorrectas; nos interesan tus experiencias y opiniones”.</p><details><summary>Ver repreguntas neutras y técnica laddering</summary><p>Profundiza sin sugerir respuestas. Puedes usar: “¿Podrías contarme un ejemplo concreto?”, “¿Qué beneficio encuentras en esa característica?”, “¿Por qué ese beneficio es importante para ti?”, “¿Qué te haría cambiar de opinión sobre el precio?”.</p><p>Explora las conexiones <strong>Atributo → Consecuencia o beneficio → Valor personal</strong>; la justificación del precio es un eje aplicado, no una cuarta dimensión del modelo original.</p></details></div></div>
+            <div class="question-block" id="entrevista-block"><div class="question-block-head"><span class="step-number">03</span><div><span class="section-tag">GUÍA DE PREGUNTAS ABIERTAS</span><h3>Entrevista semiestructurada</h3><p>Registra las respuestas en las propias palabras de la persona. Puede omitir cualquier pregunta; no asignes interpretaciones automáticamente.</p></div><span class="item-count">12 preguntas</span></div><div id="entrevista-questions"></div></div>
+            <div class="form-card">
+              <div class="form-card-header"><span class="step-number">04</span><div><h3>Notas de campo y cierre</h3><p>Registra observaciones relevantes, sin datos que permitan identificar a la persona.</p></div></div>
+              <label class="field field-full"><span>Observaciones de contexto (opcional)</span><textarea name="observaciones_contexto" rows="3" maxlength="4000" placeholder="Interrupciones, ejemplos relevantes, observaciones de la entrevista..."></textarea></label>
+              <label class="field field-full"><span>¿Hay algún otro motivo que influya en lo que pagas por tu ropa? (opcional)</span><textarea name="informacion_adicional" rows="3" maxlength="4000" placeholder="Respuesta final de la persona entrevistada..."></textarea></label>
+            </div>
+            <div class="submission-card"><div><h3>Guarda el registro de entrevista</h3><p id="qual-progress-text">0 de 12 preguntas con anotaciones</p><p class="privacy-note">Las respuestas se guardan como textos para su posterior codificación cualitativa.</p></div><button class="submit-button" type="submit" id="qual-submit">Guardar entrevista <span aria-hidden="true">↗</span></button><p class="status" id="qual-status" role="status" aria-live="polite"></p></div>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer"><span>LA CASA DEL ABRIGO <span class="gold-dot">✦</span> INVESTIGACIÓN DE MERCADO</span><span>Información recopilada exclusivamente para el estudio de consumidores · <span id="footer-year"></span></span></footer>
+  </div>
+</body>
+</html>
